@@ -1,0 +1,46 @@
+doctype html
+html(lang='zh-CN')
+	head
+		meta(charset='UTF-8')
+		meta(http-equiv='x-ua-compatible', content='ie=edge')
+		
+
+		block title
+			title 默认标题
+
+		block link
+
+		link(rel='stylesheet' href='/content/main.css')
+
+		script(src='/scripts/jquery-1.11.3.min.js')
+
+		script(src='/scripts/jquery-1.6.min.js')
+
+		script(src='/scripts/jquery.slider.pack.js')
+			
+		script(src='/scripts/config.js')
+
+		block script-header
+
+
+	body
+		//- 页眉，会根据需要加载 header 或 header-signup 
+		block header
+			include header_1
+
+		//- 正文内容 
+		block content
+
+		//- 页脚 
+		block footer
+			include footer
+
+		//- 右侧菜单
+		block right
+			include right_list
+
+		//- 在页面底部加载的脚本 
+		block script-footer
+			script(src='/scripts/main.js')
+
+			script(src='/scripts/calendar.js')

@@ -1,0 +1,475 @@
+*{
+  -webkit-tap-highlight-color: transparent;
+}
+//公共样式
+//字体颜色
+@text-title: #333333;//标题字体色
+@text-content: #565656;//文本字体色
+@white-color:#ffffff;//白色
+@green-color:#10c55b;//绿色
+@green-color-01:#7ac350;//棕绿色
+@green-yellow-color:#ccdb38;//黄绿色
+@sgreen-yellow-color:#c3d22f;//深黄绿色
+@text-red:#e7290f;//红色
+@yellow-color:#ffc800;//黄色
+@q-yellow-color:#fef2c4;//浅黄色
+@text-j-yellow:#f6c350;//橘黄色
+
+//背景颜色
+@green-bg:@green-color;//绿色
+@green-hover-bg:#05ad4a;
+@white-bg:@white-color;//白色
+@gy-bg:@green-yellow-color;//黄绿色
+@gz-bg:@green-color-01;//棕绿色
+@grey-bg:#f7f7fa;//浅灰
+@high-grey-bg:#d1d1d1;//深灰
+@grey-black-bg:#293243;//浅黑
+@high-black-bg:#161d29;//深黑
+@yellow-bg:@yellow-color;//黄色
+
+//字体大小
+@fontSize-12: 12px;
+@fontSize-14: 14px;
+@fontSize-16: 16px;
+@fontSize-18: 18px;
+@fontSize-20: 20px;
+@fontSize-24: 24px;
+@fontSize-26: 26px;
+@fontSize-28: 28px;
+@fontSize-30: 30px;
+@fontSize-32: 32px;
+@fontSize-48: 48px;
+
+
+//边框颜色
+@borderColor-001: #efefef;
+@borderColor-002: #c83231;
+@borderColor-003: #f09191;
+@borderColor-004: #fff000;
+@borderColor-007: #ededed;
+@borderColor-008: #fca8a8;
+//new add bianliang end
+
+
+*{
+  margin:0;
+  padding:0;
+}
+table {border-collapse:collapse;border-spacing:0;}
+fieldset,img { border:0;}
+address,caption,cite,code,dfn,em,strong,th,var {font-style:normal;font-weight:normal;}
+ol,ul,li{list-style:none;}
+caption,th {text-align:left;}
+h1,h2,h3,h4,h5,h6 {font-size:100%;}
+q:before,q:after {content:'';}
+a{text-decoration:none}
+input{outline:none;border-radius:3px;}
+i{font-style:normal;}
+
+a {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+html {
+  font-family: sans-serif; /* 1 */
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+
+
+//圆角
+.border-radius (@radius: 5px) {
+  border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+}
+
+.clearfix() {
+  *zoom: 1;
+  &:before,
+  &:after {
+  content: " "; // 1
+  display: table; // 2
+  // Fixes Opera/contenteditable bug:
+  // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+  line-height: 0;
+  }
+  &:after {
+  clear: both;
+  }
+}
+
+
+.btn(@width:100%,@height:46px,@bg:transparent){
+  display: inline-block;
+  width: @width;
+  height: @height;
+  line-height: @height;
+  background: @bg;
+  text-align: center;
+}
+.btn{
+  .btn(@width:100%,@height:40px,@bg:transparent);
+  .border-radius (@radius: 5px);
+}
+// Opacity
+.opacity(@opacity) {
+  opacity: @opacity;
+  @opacity-ie: @opacity * 100;
+  filter: ~"alpha(opacity=@{opacity-ie})"; // IE8
+}
+
+//三角形样式 end
+//尖角
+.drop-angle-nomor(@w:20px){
+    content: ""; 
+    width: 0; 
+    height: 0; 
+    position: relative;
+    display:inline-block; 
+    border-width: @w; 
+    border-style: solid;
+}
+//向右
+.triangle-icon(right,@w:20px,@c:#f60){
+  border-width: @w;
+  border-color: transparent transparent transparent @c;
+  border-style: dashed dashed dashed solid;
+}
+//向左
+.drop-angle(left,@c:#f60,@c1:#fff){
+    position:relative; 
+    &:before{
+        .drop-angle-nomor(12px);
+        left: 0px; 
+        top: 8px; 
+        border-color: transparent @c transparent transparent;
+    }
+    &:after{
+        .drop-angle-nomor(12px);
+        left: -26px; 
+        top: 8px; 
+        border-color: transparent @c1 transparent transparent;
+    }
+}
+//向下
+.triangle-icon(bottom,@w:20px,@c:#f60){
+  border-width: @w;
+  border-color: @c transparent transparent transparent;
+  border-style: solid dashed dashed dashed;
+}
+//向上
+.triangle-icon(top,@w:20px,@c:#f60){
+  border-width: @w;
+  border-color: transparent transparent @c transparent;
+  border-style: dashed dashed solid dashed;
+}
+
+//公用
+.triangle-icon(@_,@w:20px,@c:#f60){
+  content: "";
+  width: 0px;
+  height: 0px;
+  overflow: hidden;
+  position: relative;
+}
+
+//尖角end
+
+.radio,
+.checkbox {
+  line-height: 40px;
+  margin-left: 10px;
+}
+.radio + label,
+.checkbox + label {
+  margin-right: 1em;
+  padding-right: 1em;
+}
+.radio:empty,
+.checkbox:empty {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+}
+.radio:empty + label,
+.checkbox:empty + label {
+  position: relative;
+  margin-left: 10px;
+  padding-left: 2em;
+  height: 36px;
+  vertical-align: middle;
+  // line-height: 36px;
+}
+.radio:empty + label::before,
+.checkbox:empty + label::before,
+.radio:empty + label::after,
+.checkbox:empty + label::after {
+  content: '';
+  position: absolute;
+}
+.radio:empty + label::before,
+.checkbox:empty + label::before {
+  width: 18px;
+  height: 18px;
+  border: 2px solid;
+  top: -4px;
+  left: 0;
+}
+.radio:empty + label::after,
+.checkbox:empty + label::after {
+  opacity: 0;
+  width: 10px;
+  height: 10px;
+  top: 7px;
+  left: 6px;
+  -webkit-transition: opacity 0.1s ease-in-out;
+          transition: opacity 0.1s ease-in-out;
+}
+.radio:empty:checked + label::after,
+.checkbox:empty:checked + label::after {
+  opacity: 1;
+  -webkit-transition: opacity 0.1s ease-in-out;
+          transition: opacity 0.1s ease-in-out;
+}
+.radio:empty + label::before,
+.radio:empty + label::after {
+  border-radius: 50%;
+}
+.radio:empty + label::before {
+  border-color: #e7290f;
+}
+.radio:empty + label::after {
+  background-color: #e7290f;
+}
+.checkbox:empty + label::before {
+  border-color: #ebebeb;
+  border-radius: 50%;
+  background: @white-color;
+}
+.checkbox:empty + label::after {
+  width: 10px;
+  height: 5px;
+  border-width: 0 0 2px 2px;
+  border-style: solid;
+  border-color: transparent transparent #e7290f #e7290f;
+  -webkit-transform: translate3d(-1px, -5px, 0) rotate(-45deg);
+          transform: translate3d(-1px, -5px, 0) rotate(-45deg);
+}
+
+
+// 蓝色背景，白色勾
+.checkbox-white:empty + label::before {
+  border-color: #ebebeb;
+  border-radius: 50%;
+  background: @green-bg!important;
+}
+.checkbox-white:empty + label::after {
+  width: 10px;
+  height: 5px;
+  border-width: 0 0 2px 2px;
+  border-style: solid;
+  border-color: transparent transparent @white-color @white-color!important;
+  -webkit-transform: translate3d(-1px, -5px, 0) rotate(-45deg);
+          transform: translate3d(-1px, -5px, 0) rotate(-45deg);
+}
+
+
+//栅格系统
+.sb-row {
+  position: relative;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  .clearfix();
+}
+.sb-col-1,
+.sb-col-2,
+.sb-col-3,
+.sb-col-4,
+.sb-col-5,
+.sb-col-6,
+.sb-col-7,
+.sb-col-8,
+.sb-col-9,
+.sb-col-10,
+.sb-col-11,
+.sb-col-12,
+.sb-col-13,
+.sb-col-14,
+.sb-col-15,
+.sb-col-16,
+.sb-col-17,
+.sb-col-18,
+.sb-col-19,
+.sb-col-20,
+.sb-col-21,
+.sb-col-22,
+.sb-col-23,
+.sb-col-24 {
+  position: relative;
+  float: left;
+  display: inline;
+  min-height: 1%;
+  /*margin-left: 0.4%;
+  margin-right: 0.4%;*/
+}
+.sb-col-1 {
+  width: percentage(1/24);
+}
+.sb-col-2 {
+  width: percentage(2/24);
+}
+.sb-col-3 {
+  width: percentage(3/24);
+}
+.sb-col-4 {
+  width: percentage(4/24);
+}
+.sb-col-5 {
+  width: percentage(5/24);
+}
+.sb-col-6 {
+  width: percentage(6/24);
+}
+.sb-col-7 {
+  width: percentage(7/24);
+}
+.sb-col-8 {
+  width: percentage(8/24);
+}
+.sb-col-9 {
+  width: percentage(9/24);
+}
+.sb-col-10 {
+  width: percentage(10/24);
+}
+.sb-col-11 {
+  width: percentage(11/24);
+}
+.sb-col-12 {
+  width: percentage(12/24);
+}
+.sb-col-13 {
+  width: percentage(13/24);
+}
+.sb-col-14 {
+  width: percentage(14/24);
+}
+.sb-col-15 {
+  width: percentage(15/24);
+}
+.sb-col-16 {
+  width: percentage(16/24);
+}
+.sb-col-17 {
+  width: percentage(17/24);
+}
+.sb-col-18 {
+  width: percentage(18/24);
+}
+.sb-col-19 {
+  width: percentage(19/24);
+}
+.sb-col-20 {
+  width: percentage(20/24);
+}
+.sb-col-21 {
+  width: percentage(21/24);
+}
+.sb-col-22 {
+  width: percentage(22/24);
+}
+.sb-col-23 {
+  width: percentage(23/24);
+}
+.sb-col-24 {
+  width: percentage(24/24);
+}
+.sb-offset-1 {
+  margin-left: percentage(1/24);
+}
+.sb-offset-2 {
+  margin-left: percentage(2/24);
+}
+.sb-offset-3 {
+  margin-left: percentage(3/24);
+}
+.sb-offset-4 {
+  margin-left: percentage(4/24);
+}
+.sb-offset-5 {
+  margin-left: percentage(5/24);
+}
+.sb-offset-6 {
+  margin-left: percentage(6/24);
+}
+.sb-offset-7 {
+  margin-left: percentage(7/24);
+}
+.sb-offset-8 {
+  margin-left: percentage(8/24);
+}
+.sb-offset-9 {
+  margin-left: percentage(9/24);
+}
+.sb-offset-10 {
+  margin-left: percentage(10/24);
+}
+.sb-offset-11 {
+  margin-left: percentage(11/24);
+}
+.sb-offset-12 {
+  margin-left: percentage(12/24);
+}
+.sb-offset-13 {
+  margin-left: percentage(13/24);
+}
+.sb-offset-14 {
+  margin-left: percentage(14/24);
+}
+.sb-offset-15 {
+  margin-left:percentage(15/24);
+}
+.sb-offset-16 {
+  margin-left: percentage(16/24);
+}
+.sb-offset-17 {
+  margin-left: percentage(17/24);
+}
+.sb-offset-18 {
+  margin-left: percentage(18/24);
+}
+.sb-offset-19 {
+  margin-left: percentage(19/24);
+}
+.sb-offset-20 {
+  margin-left: percentage(20/24);
+}
+.sb-offset-21 {
+  margin-left: percentage(21/24);
+}
+.sb-offset-22 {
+  margin-left: percentage(22/24);
+}
+.sb-offset-23 {
+  margin-left: percentage(23/24);
+}
+.sb-offset-24 {
+  margin-left: percentage(24/24);
+}
+/*公共样式end*/
+
+.yellow-color{
+   color: @yellow-color;
+}
