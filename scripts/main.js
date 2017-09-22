@@ -54,6 +54,12 @@ $(function() {
     })
 
 
+    $('.sb-nav-items a').click(function(){
+        $('.sb-nav-items a').removeClass('on');
+        $(this).addClass('on');
+    })
+
+
 
     
 })
